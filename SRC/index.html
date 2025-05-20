@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookFocus</title>
+    <link rel="shortcut icon" href="./assets/bookFocus-icone.png" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/dashboard.css">
+    <link rel="stylesheet" href="./CSS/pomodoro.css">
+</head>
+<body>
+    <nav class="dashboard">
+        <button class="botao">⏰ Pomodoro</button>
+        <button class="botao">📒 Notas</button>
+        <button class="botao">💡 Tarefas</button>
+        
+    </nav>
+    <main>
+        <section id="pomodoro" class="section pomodoro active">
+            <h1 class="pomodoro__titulo">PomoFocus</h1>
+            <div class="pomodoro__main">
+                <div class="pomodoro__main--tempo">
+                    <h2>00:00</h2>
+                </div>
+               <div class="pomodoro__main--botoes">
+                 <button class=" pomodoro__botoes--botao ">Iniciar</button>
+                 <button class=" pomodoro__botoes--botao ">Parar</button>
+               </div>
+            </div>
+        </section>
+
+        <section id="notas" class="section">
+            <h1>Add suas Notas Aqui</h1>
+        </section>
+
+        <section id="tarefas" class="section">
+            <h1>Add as suas tarefas aqui</h1>
+        </section>
+    </main>
+</body>
+</html>

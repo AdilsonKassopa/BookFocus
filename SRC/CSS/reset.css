@@ -1,0 +1,17 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+}
+.section{
+      display: none;
+}
+.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
