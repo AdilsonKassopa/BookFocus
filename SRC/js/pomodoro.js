@@ -7,18 +7,17 @@ let minutos = parseInt(minutosElement.textContent)
 let segundos = 60
 let interval = null
 
-console.log(buttonStartPomodoro);
 
 
 function iniciarPomodoro() {
     interval = setInterval(()=>{
-    console.log(interval);
     
     if(interval != null ){
         segundos--
         if(segundos == 59 ){
             minutos--
         }
+        
         minutosElement.textContent = minutos
         segundosElement.textContent = segundos
         if(minutos == 0 && segundos == 0){
@@ -47,6 +46,8 @@ buttonStartPomodoro.onclick = ()=>{
         segundosElement.textContent = '00'
         buttonStartPomodoro.textContent = 'Iniciar'
         buttonStopPomodoro.textContent = 'Parar'
+        minutos = parseInt(minutosElement.textContent)
+        segundos = 60
         clearInterval(interval)
         interval = null
     }else{
@@ -55,6 +56,8 @@ buttonStartPomodoro.onclick = ()=>{
         
     }
 }
+
+
 buttonStopPomodoro.onclick = ()=>{
     if (buttonStopPomodoro.textContent == 'Parar' && interval != null) {
         pararPomodoro()
@@ -64,5 +67,3 @@ buttonStopPomodoro.onclick = ()=>{
         buttonStopPomodoro.textContent = 'Parar'
     }
 }
-
-
