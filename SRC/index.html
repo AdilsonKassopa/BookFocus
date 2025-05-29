@@ -18,7 +18,33 @@
     </nav>
     <main>
         <section id="pomodoro" class="section pomodoro active">
-             <button class="pomodoro__btn_option" type="button">⏰</button>
+             <div class="pomodoro__option">
+                <div class="pomodoro__btn--option"><button id="button__option" type="button">⏰</button></div>
+                <div id="option__menu" class="pomodoro__option--menu">
+                    <div class="menu__div">
+                        <div>
+                            <label for="txt_Minutos">Minutos:</label>
+                            <input id="txt_Minutos" type="text">
+                        </div>
+                        <div>
+                            <label for="txt_Segundos">Segundos:</label>
+                            <input id="txt_Segundos" type="text">
+                        </div>
+                    </div>
+                    <div class="menu__div menu__div--interval">
+                        <p class="menu__div--titulo">INTERVAL</p>
+                        <div>
+                            <label for="txt_Min_Interval">Minutos:</label>
+                            <input id="txt_Min_Interval" type="text">
+                        </div>
+                       <div>
+                             <label for="txt_Seg_Interval">Segundos:</label>
+                            <input id="txt_Seg_Interval" type="text">
+                       </div>
+                    </div>
+                    <button class="botao" type="button">Salvar</button>
+                </div>
+             </div>
             <h1 class="pomodoro__titulo">BookFocus</h1>
             <div class="pomodoro__main">
                 <div class="pomodoro__main--tempo">

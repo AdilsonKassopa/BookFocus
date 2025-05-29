@@ -1,8 +1,9 @@
-let buttonStartPomodoro = document.getElementById("startPomodoro");
-let buttonStopPomodoro = document.getElementById("stopPomodoro")
-let intervalo = null;
-let minutosElement = document.getElementById("minutos");
-let segundosElement = document.getElementById("segundos");
+const buttonStartPomodoro = document.getElementById("startPomodoro");
+const buttonStopPomodoro = document.getElementById("stopPomodoro")
+const  buttonOption = document.getElementById("button__option")
+const menuOptionElement = document.getElementById("option__menu")
+const minutosElement = document.getElementById("minutos");
+const segundosElement = document.getElementById("segundos");
 let minutos = parseInt(minutosElement.textContent)
 let segundos = 60
 let interval = null
@@ -66,4 +67,9 @@ buttonStopPomodoro.onclick = ()=>{
         iniciarPomodoro()
         buttonStopPomodoro.textContent = 'Parar'
     }
+}
+
+buttonOption.onclick = ()=>{
+    menuOptionElement.style.display = menuOptionElement.style.display == "flex" ? "none":"flex"
+    
 }

@@ -58,9 +58,62 @@
     background-color: #3f3f4f;
 }
 
-.pomodoro__btn_option{
+.pomodoro__option{
     background-color: #2f2f4f;
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 10px;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    
+}
+.pomodoro__btn--option{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+.pomodoro__option--menu{
+    display: none;
+    flex-direction: column;
+    background-color:#f1aaaa98;
+    padding: 1rem;
+    border-radius: .3rem;
+    color: #fff;
+    width: 70%;
+    margin-left: 5rem;
+    margin-top: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+   
+}
+.menu__div{
+    display: flex;
+    flex-direction: column;
+    
+}
+.menu__div div{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .3rem;
+}
+.menu__div--titulo{
+    text-align: center;
+    font-weight: 700;
+}
+.menu__div div input{
+    border: 1px solid #d81d1dc7;
+    background: none;
+    border-radius: .3rem;
+    padding: .2rem;
+}
+.menu__div--interval{
+    margin-top: .4rem;
+}
+.menu__div--interval::before{
+    content: "";
+    width: 70%;
+    height: .1rem;
+    position: absolute;
+    background-color:#d81d1dc7 ;
+
 }
