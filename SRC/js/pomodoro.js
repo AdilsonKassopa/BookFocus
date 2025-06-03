@@ -13,6 +13,8 @@ const txt_MinutosElement = document.getElementById("txt_Minutos")
 const txt_SegundosElement = document.getElementById("txt_Segundos")
 const txt_Min_Interval = document.getElementById("txt_Min_Interval")
 const txt_Seg_Interval = document.getElementById("txt_Seg_Interval")
+const pomodoroElement = document.getElementById("pomodoro")
+const pomodoroTituloElement = document.getElementById("pomodoro__titulo")
 
 //Variaveis do sistema 
 let minutos
@@ -20,16 +22,14 @@ let segundos
 let Min_Interval 
 let Seg_Interval 
 let interval = null
+let count = 0
+
 if(localStorage.getItem('minutos') && localStorage.getItem('segundos')){
-    minutosElement.textContent = localStorage.getItem('minutos')
-    segundosElement.textContent = localStorage.getItem('segundos')
-    minutos = localStorage.getItem('minutos')
-    segundos = localStorage.getItem('segundos')
+    minutos = minutosElement.textContent = localStorage.getItem('minutos')
+    segundos =segundosElement.textContent = localStorage.getItem('segundos')
 }else{
-    minutosElement.textContent = '25'
-    segundosElement.textContent = '00'
-    minutos = 25
-    segundos = 0
+    minutos = minutosElement.textContent = '25'
+    segundos = segundosElement.textContent = '00'
 }
 
 // Resetando por padrão os campos do menu opção
@@ -38,6 +38,7 @@ txt_SegundosElement.value = localStorage.getItem('segundos')
 txt_Min_Interval.value =  localStorage.getItem('min_interval')
 txt_Seg_Interval.value = localStorage.getItem('seg_interval')
 
+// Função para iniciar o cronometro do pomodoro
 function iniciarPomodoro() {
     interval = setInterval(()=>{
     
@@ -53,9 +54,9 @@ function iniciarPomodoro() {
         minutosElement.textContent = minutos
         segundosElement.textContent = segundos
         if(minutos == 0 && segundos == 0){
-            console.log(interval);
             clearInterval(interval)
             interval = null
+            intervalBooks()
         }
         if(segundos == 0){
             segundos = 60
@@ -64,7 +65,7 @@ function iniciarPomodoro() {
             
     },1000)
 }
-
+//função para parar o cronomotro do pomodoro
 function pararPomodoro(){
     if(interval != null){
         clearInterval(interval)
@@ -72,14 +73,39 @@ function pararPomodoro(){
     }
 }
 
+//função para alternar entre  a tela do intervalBooks e o BooksFocus
+function intervalBooks(){
+    if(count == 0){
+        pomodoroElement.style.backgroundImage = 'linear-gradient(180deg, #363467 0%, rgba(30,29,79, 0.8)100%)'
+        pomodoroTituloElement.textContent = "IntervalBooks"
+        buttonStartPomodoro.textContent = 'Iniciar'
+        minutos = minutosElement.textContent = localStorage.getItem('min_interval')
+        segundos = segundosElement.textContent = localStorage.getItem('seg_interval')
+        count = 1
+    }else{
+        pomodoroElement.style.backgroundImage = 'none'
+        pomodoroTituloElement.textContent = "BookFocus"
+        buttonStartPomodoro.textContent = 'Iniciar'
+        minutos = minutosElement.textContent = localStorage.getItem('minutos')
+        segundos = segundosElement.textContent = localStorage.getItem('segundos')
+        count = 0 
+    }
+    
+}
+
 buttonStartPomodoro.onclick = ()=>{
     if(buttonStartPomodoro.textContent == 'Reiniciar'){
-        minutosElement.textContent = localStorage.getItem('minutos')
-        segundosElement.textContent = localStorage.getItem('segundos')
+        if(pomodoroTituloElement.textContent == 'BookFocus'){
+            minutos = minutosElement.textContent = localStorage.getItem('minutos')
+            segundos = segundosElement.textContent = localStorage.getItem('segundos')
+        }else if(pomodoroTituloElement.textContent == 'IntervalBooks'){
+            minutos = minutosElement.textContent = localStorage.getItem('min_interval')
+            segundos = segundosElement.textContent = localStorage.getItem('seg_interval')
+
+        }
+
         buttonStartPomodoro.textContent = 'Iniciar'
         buttonStopPomodoro.textContent = 'Parar'
-        minutos = localStorage.getItem('minutos')
-        segundos = localStorage.getItem('segundos')
         clearInterval(interval)
         interval = null
     }else{
@@ -164,4 +190,5 @@ btn_SalvarElement.onclick = () => {
     segundos = localStorage.getItem('segundos')
     buttonStartPomodoro.textContent = 'Iniciar'
     buttonStopPomodoro.textContent = 'Parar'
+    location.reload()
 }
