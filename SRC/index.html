@@ -11,13 +11,13 @@
 </head>
 <body>
     <nav class="dashboard">
-        <button class="botao">⏰ Pomodoro</button>
-        <button class="botao">📒 Notas</button>
-        <button class="botao">💡 Tarefas</button>
+        <button class="botao nav__btn">⏰ Pomodoro</button>
+        <button class="botao nav__btn">📒 Notas</button>
+        <button class="botao nav__btn">💡 Tarefas</button>
         
     </nav>
     <main>
-        <section id="pomodoro" class="section pomodoro active">
+        <section style="display: flex;"  id="pomodoro" class="section pomodoro active">
              <div class="pomodoro__option">
                 <div class="pomodoro__btn--option"><button id="button__option" type="button">⏰</button></div>
                 <div id="option__menu" class="pomodoro__option--menu">
@@ -57,14 +57,15 @@
             </div>
         </section>
 
-        <section id="notas" class="section">
+        <section style="display: none;"  id="notas" class="section">
             <h1>Add suas Notas Aqui</h1>
         </section>
 
-        <section id="tarefas" class="section">
+        <section style="display: none;" id="tarefas" class="section">
             <h1>Add as suas tarefas aqui</h1>
         </section>
     </main>
+    <script src="./js/index.js"></script>
     <script src="./js/pomodoro.js"></script>
 </body>
 </html>
